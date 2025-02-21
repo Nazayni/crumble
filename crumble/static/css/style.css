@@ -6,15 +6,21 @@
 
 body {
     min-height: 100vh;
-    display: grid;
-    place-content: center;
     font-size: 3rem;
     background-color: black;
     color: whitesmoke;
 }
 
+h1, h2 {
+    font-size: 2rem;
+}
+
 h1, p {
     text-align: center;
+}
+
+li {
+    list-style: none;
 }
 
 nav {
@@ -27,7 +33,8 @@ nav {
 main {
     flex-grow: 1;
     display: grid;
-    place-content: center;
+    padding: 20px;
+    font-size: 2rem;
 }
 
 a {
@@ -43,4 +50,27 @@ a:hover {
     display: block;
     width: 100%;
     max-width: 800px;
+}
+
+.errorlist {
+    color: red;
+    margin-left: 2rem;
+}
+
+.errorlist li::marker {
+    content: '⚠️ ';
+}
+
+.logout {
+    display: inline-block;
+}
+
+.logout-button {
+    font-size:2.5rem;
+    background-color: rgb(0,0,0,0);
+    border: none;
+}
+
+.logout-button:hover {
+    opacity: .85;
 }
