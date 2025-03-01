@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    font-size: 3rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    background-color: black;
+    color: whitesmoke;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgb(15, 15, 16);
+    border-right: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255,21%);
+    color: white;
+}
+
+nav a {
+    padding: 10px;
+    margin: 5px 0px 5px 0px;
+    width: 200px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.a-element {
+    display: block;
+}
+
+.a-element:hover {
+    background-color: rgb(255,255,255,25%);
+}
+
+.a-element img {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+}
+
+.heading-container {
+    display: block;
+    padding: 15px 0 15px 0;
+}
+
+.home-heading {
+    font-size: 26px;
+    color: #f5f5f5;
+}
+
+h1, h2 {
+    font-size: 2rem;
+}
+
+h1, p {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+main {
+    flex-grow: 1;
+    display: grid;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: deepskyblue;
+}
+
+a:hover {
+    opacity: .85;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+}
+
+.errorlist {
+    color: red;
+    margin-left: 2rem;
+}
+
+.errorlist li::marker {
+    content: '⚠️ ';
+}
+
+.logout {
+    display: inline-block;
+}
+
+.logout-button {
+    font-size:2.5rem;
+    background-color: rgb(0,0,0,0);
+    border: none;
+}
+
+.logout-button:hover {
+    opacity: .85;
+}
