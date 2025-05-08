@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+
+{% block title %} 
+    New Note
+{% endblock %} 
+
+{% block content %}
+    <div class="account-encryption-container">
+        <div class="account-encryption-tight">
+            <h1>New Note</h1>
+            <form class="new-post-validation" action="{% url 'notes:new-note' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group">
+                    <p>Title</p>
+                    {{ form.title }}
+                </div>
+                <div class="input-group">
+                    <p>Description</p>
+                    {{ form.body }}
+                </div>
+                <div class="input-group">
+                    <p>Slug</p>
+                    {{ form.slug }}
+                </div>
+                <div class="input-group">
+                    <p>Image</p>
+                    {{ form.banner }}
+                </div>
+                <div class="input-group">
+                    <button class="form-submit">Add Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 

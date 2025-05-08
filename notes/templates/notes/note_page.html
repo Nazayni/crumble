@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} 
+
+{% block title %} 
+    {{ note.title }}
+{% endblock %} 
+
+{% block content %}
+    <section>
+        <img 
+            class="banner"
+            src="{{ note.banner.url }}"
+            alt="{{ note.title }}"    
+        />
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.date }}</p>
+        <p>{{ note.body }}</p>
+    </section>
+{% endblock %} 
