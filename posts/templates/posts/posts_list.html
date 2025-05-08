@@ -5,24 +5,17 @@
 {% endblock %} 
 
 {% block content %}
-    <section>
-    <h1>Posts</h1>
-
-    {% for post in posts %}
-        <article class="post">
-            <h2>
-                <a href="{% url 'posts:page' slug=post.slug %}">
-                    {{ post.title }}
-                </a>
-            </h2>
-            <p>{{ post.date }} by {{ post.author }}</p>
-            <p>{{ post.body }}</p>
-            <img 
-                class="banner"
-                src="{{ post.banner.url }}"
-                alt="{{ post.title }}"    
-            />
-        </article>
-    {% endfor %}
-    </section>
+        <div class="post-items">
+            {% for post in posts %}
+            <a href="{% url 'posts:page' slug=post.slug %}" class="post-main-link">
+                <article class="post-main">
+                    <img 
+                        class="banner"
+                        src="{{ post.banner.url }}"
+                        alt="{{ post.title }}"
+                    />
+                </article>
+            </a>
+            {% endfor %}
+        </div>
 {% endblock %} 

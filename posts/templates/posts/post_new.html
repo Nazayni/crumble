@@ -5,12 +5,31 @@
 {% endblock %} 
 
 {% block content %}
-    <section>
-        <h1>New Post</h1>
-        <form class="form-with-validation" action="{% url 'posts:new-post' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <button class="form-submit">Add Post</button>
-        </form>
-    </section>
+    <div class="account-encryption-container">
+        <div class="account-encryption-tight">
+            <h1>New Post</h1>
+            <form class="new-post-validation" action="{% url 'posts:new-post' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group">
+                    <p>Title</p>
+                    {{ form.title }}
+                </div>
+                <div class="input-group">
+                    <p>Description</p>
+                    {{ form.body }}
+                </div>
+                <div class="input-group">
+                    <p>Slug</p>
+                    {{ form.slug }}
+                </div>
+                <div class="input-group">
+                    <p>Image</p>
+                    {{ form.banner }}
+                </div>
+                <div class="input-group">
+                    <button class="form-submit">Add Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %} 
