@@ -15,6 +15,7 @@ body {
     color: whitesmoke;
 }
 
+/* ------------------- For navigation --------------------*/
 nav {
     display: flex;
     flex-direction: column;
@@ -26,17 +27,19 @@ nav {
     color: white;
 }
 
-nav a {
+nav a, form {
     padding: 10px;
     margin: 5px 0px 5px 0px;
     width: 200px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
-.a-element {
-    display: block;
+.a-element span {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .a-element:hover {
@@ -44,9 +47,45 @@ nav a {
 }
 
 .a-element img {
-    width: 100%;
-    height: 100%;
+    width: 34px;
+    height: 34px;
     padding: 3px;
+}
+
+.a-element p {
+    margin-left: 10px;
+}
+
+.a-element-a span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.a-element-a:hover {
+    background-color: rgb(255,255,255,25%);
+}
+
+.a-element-a img {
+    width: 34px;
+    height: 34px;
+    padding: 3px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.a-element-a p {
+    margin-left: 10px;
+}
+
+.a-element button {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(0,0,0,0%);
+    color: white;
 }
 
 .heading-container {
@@ -71,13 +110,6 @@ li {
     list-style: none;
 }
 
-main {
-    flex-grow: 1;
-    display: grid;
-    padding: 20px;
-    font-size: 2rem;
-}
-
 a {
     text-decoration: none;
     color: deepskyblue;
@@ -93,6 +125,151 @@ a:hover {
     max-width: 800px;
 }
 
+main {
+    flex-grow: 1;
+    padding: 20px;
+    height: 100vh; /* Make sure it fills the full height */
+    overflow-y: auto; /* Enables scrolling inside main */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+    padding: 10px 10px 10px 10px;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+}
+
+.dropdown-toggle {
+	all: unset;
+	cursor: pointer;
+	width: 100%;
+}
+
+.dropdown-content {
+	display: none;
+	flex-direction: column;
+	width: 100%;
+}
+
+.b-element {
+    padding: 10px 0px 10px 0px;
+    margin: 5px 0px 5px 0px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.b-element:hover {
+    background-color: rgb(255,255,255,25%);
+}
+
+.dropdown.open {
+    display: flex;
+    padding: 10px 10px 10px 10px;
+}
+
+.dropdown.open .dropdown-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+    padding: 10px 10px 10px 10px;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+}
+
+.a-element.dropdown.open {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.a-element.dropdown.open .dropdown-content, .a-element.dropdown.open .dropdown {
+    padding: 0px;
+}
+
+.a-element.dropdown.open .dropdown-toggle {
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.a-element.dropdown.open .dropdown {
+    margin: 0px;
+}
+
+.a-element.dropdown.open .dropdown-content {
+    margin: 0;
+}
+
+/*-------------- For user login and register pages -----------------*/
+.account-encryption-container {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
+    height: 100%;
+}
+
+.account-encryption-tight {
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(253, 253, 253) 0px 0px 4px 1px;
+    background-color: rgb(15, 15, 16);
+    width: 100%;
+    height: 550px;
+}
+
+.account-encryption-tight h2 {
+    padding: 20px;
+}
+
+.account-encryption-tight p {
+    text-align: left;
+}
+
+.form-with-validation {
+    width: 90%;
+}
+
+.input-group {
+    width: 100%;
+    padding: 10px;
+}
+
+.form-input {
+    width: 100%;
+    height: 33px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.form-submit {
+    background-color: rgb(0, 166, 231);
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 33px;
+    text-align: center;
+}
+
+/*--------Error for failed login/registration----------*/
 .errorlist {
     color: red;
     margin-left: 2rem;
@@ -102,16 +279,292 @@ a:hover {
     content: '⚠️ ';
 }
 
-.logout {
-    display: inline-block;
+/*-------------------Post Page-------------------------*/
+.post-main-link {
+    width: 280px;
+}
+.post-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: center;
+    height: 100%;
+    min-width: 740px;
 }
 
-.logout-button {
-    font-size:2.5rem;
-    background-color: rgb(0,0,0,0);
-    border: none;
+.post-items img {
+    height: 280px;
+    width: 280px;
+    overflow: hidden;
+    object-fit: cover;
+    padding: 5px;
 }
 
-.logout-button:hover {
-    opacity: .85;
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.post-items article {
+    max-width: 440px;
+    max-height: 770px;
+}
+
+.post-description {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+}
+
+.post-description p, h3 {
+    font-size: 16px;
+    text-align: left;
+}
+
+/*----------------profile page-------------------*/
+.profile-wrap {
+    height: 100%;
+    font-weight: 300;
+}
+
+/*----For the profile picture, bio, and edit-----*/
+.account-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 860px;
+}
+
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 280px;
+    margin: 5px;
+}
+
+.profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    z-index: 3;
+    cursor: pointer;
+    box-shadow: rgb(253, 253, 253) 0px 0px 4px 1px;
+    overflow: hidden;
+    object-fit: cover;
+}
+/*------------For username, bio, and links-------------*/
+.user-and-followers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bio-container {
+    display: flex;
+    justify-content: start;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 100%;
+}
+
+.bio-text-format {
+    font-size: 18px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 490px;
+    height: 190px;
+    padding: 5px;
+}
+
+.profile-details h1, p {
+    text-align: left;
+    font-size: 18px;
+}
+
+.edit-profile {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    padding: 5px;
+}
+
+.edit-profile img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 500px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/*-------------------Profile Page Modules--------------------*/
+.no-posts-found {
+    background-color: #202020;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.no-posts-found p {
+    font-size: 18px;
+}
+
+/*-------------------Profile Page Posts--------------------*/
+.user-posts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 860px;
+    justify-content: center;
+}
+
+.post-link {
+    padding: 0;
+    margin: 0;
+}
+
+.post img {
+    height: 450px;
+    width: 280px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/*-------------------Profile Page Notes--------------------*/
+.user-notes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 860px;
+    justify-content: center;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.profile-notebook {
+    height: 450px;
+    width: 280px;
+    border: solid black 5px;
+    padding: 5px;
+    background-color: white;
+}
+
+.profile-notebook h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    font-size: 28px;
+    border-bottom: solid 1px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-notebook p {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: black;
+}
+/*---------------user account menu----------------*/
+.account-menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255,21%);
+    margin-bottom: 20px;
+}
+
+.account-menu p, h2 {
+    font-size: 18px;
+    color: white;
+}
+
+.account-menu-items  {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 70px;
+    padding: 20px 70px 20px 70px;
+}
+
+.account-menu-items-highlight {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 70px;
+    padding: 20px 70px 20px 70px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: white;
+}
+/*-------------------New Posts--------------------*/
+.new-post-validation {
+    width: 90%;
+}
+
+.new-post-validation .input-group{
+    width: 100%;
 }
