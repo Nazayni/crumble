@@ -1,0 +1,14 @@
+<form 
+    class="follow-form" 
+    method="post" 
+    data-url="{% url 'users:toggle_follow_user' target.user.username %}"
+>
+    {% csrf_token %}
+    <button type="submit">
+        {% if is_following %}
+        Unfollow
+        {% else %}
+        Follow
+        {% endif %}
+    </button>
+</form>

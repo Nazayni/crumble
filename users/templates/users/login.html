@@ -5,13 +5,26 @@
 {% endblock %} 
 
 {% block content %}
-    <h2> User Login </h2>
-    <form class="form-with-validation" action="{% url 'users:login' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        {% if request.GET.next %}
-            <input type="hidden" name="next" value="{{ request.GET.next }}"/>
-        {% endif %}
-        <button class="form-submit">Submit</button>
-    </form>
+    <div class="account-encryption-container">
+        <div class="account-encryption-tight">
+            <h2> User Login </h2>
+            <form class="form-with-validation" action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <p>Username</p>
+                    {{ form.username }}
+                </div>
+                <div class="input-group">
+                    <p>Password</p>
+                    {{ form.password }}
+                </div>
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+                {% endif %}
+                <div class="input-group">
+                    <button class="form-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %} 

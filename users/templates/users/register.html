@@ -1,14 +1,35 @@
 {% extends 'layout.html' %} 
 
-{% block title %} 
-    Register a New User
+{% block title %}
+    Register
 {% endblock %} 
 
 {% block content %}
-    <h2> Register a new user </h2>
-    <form class="form-with-validation" action="{% url 'users:register' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button class="form-submit">Submit</button>
-    </form>
+    <div class="account-encryption-container">
+        <div class="account-encryption-tight">
+            <h2> Register </h2>
+            <form class="form-with-validation" action="{% url 'users:register' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <p>Username</p>
+                    {{ form.username }}
+                </div>
+                <div class="input-group">
+                    <p>E-mail</p>
+                    {{ form.email }}
+                </div>
+                <div class="input-group">
+                    <p>Password</p>
+                    {{ form.password1 }}
+                </div>
+                <div class="input-group">
+                    <p>Confirm Password</p>
+                    {{ form.password2 }}
+                </div>
+                <div class="input-group">
+                    <button class="form-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %} 

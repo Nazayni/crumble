@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Followers of {{ profile.user.username }}{% endblock %}
+
+{% block content %}
+    <h1>Followers of {{ profile.user.username }}</h1>
+    <ul>
+        {% for follower in followers %}
+            <li>{{ follower.user.username }}</li>
+        {% empty %}
+            <li>No followers yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'users:profile' %}">Back to Profile</a>
+{% endblock %}

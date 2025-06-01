@@ -1,0 +1,16 @@
+{% if is_followed %}
+<form 
+    class="follower-form" 
+    method="post"
+    data-url="{% url 'users:rmv_follower' follower.user.username %}"
+>
+{% csrf_token %}
+<button type="submit">
+    Remove
+</button>
+</form>
+{% else %}
+<p> 
+    Removed
+</p>
+{% endif %}

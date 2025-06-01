@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} 
+
+{% block title %}
+    {{ profile_user.username }}
+{% endblock %} 
+
+{% block content %}
+    <h2>{{ profile_user.username }}'s Profile</h2>
+    <p>Bio: {{ profile.bio }}</p>
+    <p>Followers: {{ profile.followers.count }}</p>
+    <p>Following: {{ profile.following.count }}</p>
+
+    <!-- Show follow/unfollow buttons -->
+    {% if request.user != profile_user %}
+        {% if is_following %}
+            <form action="{% url 'users:unfollow' profile_user.username %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Unfollow</button>
+            </form>
+        {% else %}
+            <form action="{% url 'users:follow' profile_user.username %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Follow</button>
+            </form>
+        {% endif %}
+    {% endif %}
+
+    <!-- Show posts or notes -->
+    <h3>{{ profile_user.username }}'s Posts</h3>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }}</li>
+        {% empty %}
+            <li>This user has no posts.</li>
+        {% endfor %}
+    </ul>
+{% endblock %} 

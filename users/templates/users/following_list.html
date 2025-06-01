@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}Following of {{ profile.user.username }}{% endblock %}
+
+{% block content %}
+    <h1>{{ profile.user.username }} is following</h1>
+    <ul>
+        {% for user in following %}
+            <li>{{ user.user.username }}</li>
+        {% empty %}
+            <li>Not following anyone yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'users:profile' %}">Back to Profile</a>
+{% endblock %}

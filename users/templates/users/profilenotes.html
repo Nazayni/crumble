@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock%}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="profile-wrap">
+        <!-- Account info containing: username, bio, links to external web, edit -->
+        <div class="account-info">
+            <div class="profile-picture-container">
+                <!-- Profile Picture -->
+                <div class="profile-picture">
+                    <img 
+                        src="{{ user.profile.image.url }}"
+                        alt="Profile Picture" 
+                        class="profile-pic"
+                    >
+                </div>
+            </div>
+            <div class="profile-details">
+                <!-- Username -->
+                <div class="user-and-followers">
+                    <h1>
+                        {{ user.username }}
+                    </h1>
+                    <h1>
+                        Followers: {{ profile.followers.count }}
+                    </h1>
+                    <h1>
+                        Following: {{ profile.following.count }}
+                    </h1>
+                </div>
+                <!-- Bio -->
+                <div class="bio-container">
+                    {% if profile.bio %}
+                        <div class="bio-text-format">
+                            {{ profile.bio }}
+                        </div>
+                    {% else %}
+                        <p>This user hasn't written a bio yet.</p>
+                    {% endif %}
+                </div>
+                <!-- Links -->
+                <div>
+                    {% if profile.links %}
+                        <p><strong>User Links:</strong> {{ profile.links|linebreaks }}</p>
+                    {% else %}
+                        <p>No links yet!</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="edit-profile">
+                <img src="{% static 'icons/pencil.png' %}"
+                    alt="Edit Profile" 
+                    class="edit-icon" 
+                    onclick="openPopup()"
+                    style="cursor: pointer;"
+                defer>
+                <!-- Popup Menu -->
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <h2>Change Profile Picture</h2>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation for posts, notes, saved -->
+        <div class="account-menu">
+            <a class="account-menu-items" href="{% url 'users:profile' %}">
+				<span role="img" aria-label="Profile Posts Page" title="Profile Posts Page">
+					<p>POSTS</p>
+				</span>
+			</a>
+            <a class="account-menu-items-highlight" href="{% url 'users:notes' %}">
+				<span role="img" aria-label="Profile Notes Page" title="Profile Notes Page">
+					<p>PROJECTS</p>
+				</span>
+			</a> 
+            <div class="account-menu-items"><p>SAVED</p></div>
+        </div>
+        <!-- Notes for the users -->
+        <div class="user-notes">
+            {% if notes %}
+                {% for note in notes %}
+                <!-- Make each post clickable on hover -->
+                <a href="{% url 'notes:page' slug=note.slug %}" class="note-link">
+                    <article class="note">
+                        <div class="profile-notebook">
+                            <h2 alt="{{ note.title }}">
+                                {{ note.title }}
+                            </h2>
+                            <p>
+                                {{ note.body }}
+                            </p>
+                        </div>
+                    </article>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="no-posts-found">
+                    <p>NO NOTES FOUND</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% else %}
+    <p>You are not logged in.</p>
+{% endif %}
+{% endblock %}
